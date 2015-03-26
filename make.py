@@ -3,9 +3,8 @@
 import os, re
 
 header = '#It actually works!\nVarious examples of the FOG language<br>2015 foglang group `github.com/foglang`\n'
-# match all lines that start with something other than a '<' or a tab, and all <pre> blocks
-# this is really primitive and will probably need to be changed later
-comment_removal_regex = r'((^|\n+)[^<\t\n].*)|(\n<pre>(.|\n)*?</pre>)'
+# match all lines that start with something other than a '<' or a tab, and all <pre> blocks at the beginning of lines
+comment_removal_regex = r'(^|\n)([^<\t\n].*|<pre>(.|\n)*?</pre>)'
 
 with open('./README.md', 'w') as readme:
     readme.write(header)
