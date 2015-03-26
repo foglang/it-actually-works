@@ -13,4 +13,4 @@ with open('./README.md', 'w') as readme:
         for filename in filenames:
             readme.write('##' + filename.split('.',1)[0].replace('-', ' ') + '\n')
             with open(os.path.join(dirname, filename), 'r') as source:
-                readme.write(re.sub(comment_removal_regex, '', source.read()))
+                readme.write(re.sub(comment_removal_regex, '', source.read()) + '\n')
